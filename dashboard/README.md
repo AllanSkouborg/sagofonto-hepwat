@@ -1,7 +1,7 @@
 
 
 
-# A – Angular CLI installation
+# "Preflight" check – Angular CLI installation
 You will need the Angular CLI (Command Line Interface) tool to build  and run the Angular app. Check if Angular is installed on your system by typing in your terminal/console
 
 `ng --version`
@@ -26,9 +26,9 @@ Install Angular CLI
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-# B – Install and build Angular apps
+# Install and build Dashboard app
 
-You will need to install the necessary node modules, as these are not stores in TFS, by typing
+You will need to install the necessary node modules, as these are not stores in TFS, by navigating to the app main folder and typing
 
 `npm install`
 
