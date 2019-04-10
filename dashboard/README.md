@@ -28,7 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # Install and build Dashboard app
 
-You will need to install the necessary node modules, as these are not stores in TFS, by navigating to the app main folder and typing
+You will need to install the necessary node modules by navigating to the app main folder and typing
 
 `npm install`
 
