@@ -1,27 +1,54 @@
-# ArtogisDashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# A – Angular CLI installation
+You will need the Angular CLI (Command Line Interface) tool to build  and run the Angular app. Check if Angular is installed on your system by typing in your terminal/console
 
-## Code scaffolding
+`ng --version`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+If no version information appears, follow the steps below to install Angular CLI. Otherwise, go to part B.
 
-## Build
+Make sure you have the npm package manager installed. In your terminal/console, type: 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+`npm -v`
 
-## Running unit tests
+You should get a version number as a result.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+If you do not, you must install Node.js. Go to https://nodejs.org/en/download/, download the proper installer for your OS and follow the instructions. Once again, check that npm has been installed as part of Node.js
 
-## Running end-to-end tests
+`npm -v`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+If a version number shows up, npm is ready.
 
-## Further help
+Install Angular CLI
+
+`npm install -g @angular/cli`
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+# B – Install and build Angular apps
+
+You will need to install the necessary node modules, as these are not stores in TFS, by typing
+
+`npm install`
+
+This might take a while as a lot of libraries are being fetched.
+
+When it’s done, you should see a new folder called node_modules, and it should be filled with a host of different libraries and modules.
+Now check that the app is operational by compiling and running a development version on localhost, port 4200, by typing:
+
+`ng serve`
+
+When the localhost app has compiled and is ready, open your browser and go to the URL  http://localhost:4200
+Port 4200 is the default. You can define another port by adding the port-option, for example:
+
+`ng serve –-port=2398`
+
+To build the production version  of the app, type:
+
+`ng build –-prod –-base-href=”/website/path/to/app/folder/”`
+where the base-href option could be something like “/dashboard/” if as an example the dashboard is to be found at the URL https://hwd-win2016-01/dashboard?id=38. 
+
+Please note, that the path has to have a forward slash (“/”) at the end of it.
+
+If the build is successful, the production version will be available in the distribution folder in the Angular project folder.
