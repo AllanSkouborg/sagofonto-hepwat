@@ -6,7 +6,7 @@ You will need the Angular CLI (Command Line Interface) tool to build  and run th
 
 `ng --version`
 
-If no version information appears, follow the steps below to install Angular CLI. Otherwise, go to part B.
+If no version information appears, follow the steps below to install Angular CLI. Otherwise, skip to "Install and build Dashboard app".
 
 Make sure you have the npm package manager installed. In your terminal/console, type: 
 
