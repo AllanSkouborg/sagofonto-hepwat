@@ -1,0 +1,26 @@
+﻿######################################
+# Ignore all files in the following folders
+\.sencha
+\build
+\ext
+\packages
+\sass
+
+# Ignore .md files in all folders
+*.md
+
+# Ignore the following files in this folder 
+\*.js
+\*.json
+\*.css
+\*.xml
+\.sencha-ide-config
+\.tern-port
+\vwd.webinfo
+\Web.config
+\.sencha-ide\file.json
+\.sencha-ide\status.json
+\.sencha-ide\store.json
+\.sencha-ide\usage.json
+\.vs\*
+*.wpp.targets
