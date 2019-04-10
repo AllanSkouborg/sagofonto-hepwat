@@ -48,7 +48,7 @@ To build the production version  of the app, type:
 
 `ng build –-prod –-base-href=”/website/path/to/app/folder/”`
 
-where the base-href option could be something like “/dashboard/” if as an example the dashboard is to be found at the URL https://hwd-win2016-01/dashboard?id=38. 
+where the base-href option could be something like “/dashboard/” if for example the dashboard URL https://example.com/dashboard?id=38. 
 
 Please note, that the path has to have a forward slash (“/”) at the end of it.
 
