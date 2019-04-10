@@ -53,4 +53,4 @@ where the base-href option could be something like “/dashboard/” if for exam
 
 Please note, that the path has to have a forward slash (“/”) at the end of it.
 
-If the build is successful, the production version will be available in the "dist/production" folder in the Angular project folder.
+If the build is successful, the production version will be available in the "dist/production" folder.
