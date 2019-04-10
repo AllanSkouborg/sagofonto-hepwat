@@ -1,0 +1,73 @@
+body {
+	background-color: rgb(246,246,246) !important;
+}
+
+.mat-toolbar {
+	background: #ffffff;
+}
+
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.dashboard-title {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.company-logo-fulllength {
+	margin: 4px 0 4px 0;
+	height: 48px;
+	min-width: 48px;
+  flex: 0 0 48px;
+}
+
+.company-logo-fulllength.right a {
+  float: right;
+}
+
+.company-logo-short {
+	margin: 4px 0 4px 0;
+	height: 48px;
+	width: 48px;
+  flex: 0 0 48px;
+}
+
+.card-container {
+	margin: 10px 0 30px 0;
+	display: block;
+  float: left; /*Added*/
+  height: auto;
+}
+
+.data-card {
+  width: 268px;
+  height: 268px;
+  float: left;
+  margin: 10px;
+  text-align: center;
+  float: left;
+  overflow: hidden;
+  border-radius: 0px;
+}
+
+// ALARM STATUS
+[data-alarmstatus="alarmMax"], [data-alarmstatus="alarmMin"]  {
+  background: #cd3739 !important;
+  color: white !important;
+}
+
+[data-alarmstatus="alarmHigh"], [data-alarmstatus="alarmLow"]  {
+  background: #e4e61c !important;
+}
+
+
+.mat-card.test-card {
+      float: left;
+    margin: 10px;
+    height: 268px;
+    width: 268px;
+    border-radius: 0px;
+}

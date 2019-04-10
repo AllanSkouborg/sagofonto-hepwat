@@ -1,0 +1,142 @@
+<span [class.disabled]="alarmStatus == 'alarmOffline'">
+
+	<mat-card-title>{{titleValue}}</mat-card-title>
+
+	<mat-card-content>
+	  <div *ngIf="sensorValue == null" class="sensor-value"><span style="font-size:24px;color:rgb(180,180,180);">loading...</span></div>
+	  <div *ngIf="sensorValue != null" class="sensor-value">{{sensorValue}}</div>
+	  <div class="unit-value">{{unitValue}}</div>
+	</mat-card-content>
+
+	<div class="last-run-status card-info-box">
+	    <span *ngIf="cardData?.lastRunVisible == true">
+	      <div class="last-run-spacer"></div>
+	      <div class="last-run-icon-and-value">
+	        <div class="last-run-icon"></div>
+	        <div class="last-run-value">{{lastRunStringValue}}</div>
+	      </div>
+	      <div class="last-run-spacer"></div>
+	    </span>
+	</div>
+
+	<mat-card-footer>
+	  <div class="footer-flex"></div>
+	  
+	  <div *ngIf="batteryVisible == true" class="footer-box battery {{batteryLevelClass}}">
+	    <div class="footer-box-icon"></div>
+	    <div class="footer-box-value">{{batteryLevelValue}}</div>
+	  </div>
+
+	  <div *ngIf="signalVisible == true" class="footer-box signal">
+	    <div class="footer-box-icon connection {{signalLevelClass}}">
+	    	<div class="signal-bar signal-bar-one"></div>
+	    	<div class="signal-bar signal-bar-two"></div>
+	    	<div class="signal-bar signal-bar-three"></div>
+	    	<div class="signal-bar signal-bar-four"></div>
+	    </div>
+	    <div class="footer-box-value">{{signalLevelValue}}</div>
+	  </div> 
+
+	  <div class="footer-flex"></div>
+	</mat-card-footer>
+
+	<!-- <div class="card-info-box battery-status" [attr.data-batterysensorid]="batterySensorId">
+		<span *ngIf="batteryVisible == true">
+		    <div class="icon-battery fa fa-battery-half"></div>
+		    <div class="bar-battery-outer">
+		      <div class="bar-battery-inner" [style.width.px]="batteryLevelValueWidth" [style.background]="batteryLevelValueColor"></div>
+		    </div>
+		    <div class="battery-level-value">{{batteryLevelValue}}</div>
+		</span>
+	</div> -->
+
+	<!-- warning icons -->
+	<div class="card-warning-overlay red" *ngIf="alarmStatus == 'alarmMax'">
+	  <div class="warning-box"></div>
+	  <div class="notification-content">
+	    <div class="card-warning-icon card-warning-overlay-triangle"></div>
+	    <div class="card-warning-icon card-warning-overlay-direction-up"></div>
+	  </div>
+	</div>
+
+	<div class="card-warning-overlay yellow" *ngIf="alarmStatus == 'alarmHigh'">
+	  <div class="warning-box"></div>
+	  <div class="notification-content">
+	    <div class="card-warning-icon card-warning-overlay-triangle"></div>
+	    <div class="card-warning-icon card-warning-overlay-direction-up"></div>
+	  </div>
+	</div>
+
+	<div class="card-warning-overlay yellow" *ngIf="alarmStatus == 'alarmLow'">
+	  <div class="warning-box"></div>
+	  <div class="notification-content">
+	    <div class="card-warning-icon card-warning-overlay-triangle"></div>
+	    <div class="card-warning-icon card-warning-overlay-direction-down"></div>
+	  </div>
+	</div>
+
+	<div class="card-warning-overlay red" *ngIf="alarmStatus == 'alarmMin'">
+	  <div class="warning-box"></div>
+	  <div class="notification-content">
+	    <div class="card-warning-icon card-warning-overlay-triangle"></div>
+	    <div class="card-warning-icon card-warning-overlay-direction-down"></div>
+	  </div>
+	</div>
+
+	<div class="card-warning-overlay gray" *ngIf="alarmStatus == 'alarmOffline'">
+	  <div class="warning-box"></div>
+	  <div class="notification-content">
+	    <div class="card-warning-icon card-warning-overlay-power-off"></div>
+	  </div>
+	</div>
+
+</span>
+
+<!-- warning icons -->
+<!-- 
+<div *ngIf="sensorId != null && sensorId == 100000" class="card-warning-overlay yellow">
+  <div class="warning-box"></div>
+  <div class="notification-content">
+    <div class="card-warning-icon card-warning-overlay-triangle"></div>
+    <div class="card-warning-icon card-warning-overlay-direction-up"></div>
+  </div>
+</div>
+
+<div *ngIf="sensorId != null && sensorId == 112456" class="card-warning-overlay gray">
+  <div class="warning-box"></div>
+  <div class="notification-content">
+    <div class="card-warning-icon card-warning-overlay-power-off"></div>
+  </div>
+</div> -->
+
+<!-- 
+<mat-card-title>{{titleValue}}</mat-card-title>
+
+<mat-card-content>
+  <div *ngIf="sensorValue == null" class="sensor-value"><span style="font-size:24px;color:rgb(180,180,180);">loading...</span></div>
+  <div *ngIf="sensorValue != null" class="sensor-value">{{sensorValue}}</div>
+  <div class="unit-value">{{unitValue}}</div>
+</mat-card-content>
+
+<mat-card-content>
+	<div class="last-run-status" class="card-info-box">
+	    <span *ngIf="cardData?.lastRunVisible == true">
+	      <div class="icon-last-run fa fa-clock-o"></div>
+	      <div class="last-run-value">{{lastRunStringValue}}</div>
+	      <div class="icon-last-run-status fa fa-power-off"></div>
+	    </span>
+	</div>
+
+	<div class="card-info-box battery-status" [attr.data-batterysensorid]="batterySensorId">
+		<span *ngIf="batteryVisible == true">
+		    <div class="icon-battery fa fa-battery-half"></div>
+		    <div class="bar-battery-outer">
+		      <div class="bar-battery-inner" [style.width.px]="batteryLevelValueWidth" [style.background]="batteryLevelValueColor"></div>
+		    </div>
+		    <div class="battery-level-value">{{batteryLevelValue}}</div>
+		</span>
+
+	</div>
+</mat-card-content>
+
+-->

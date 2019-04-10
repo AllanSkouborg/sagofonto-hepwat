@@ -1,0 +1,58 @@
+<mat-toolbar *ngIf="fullscreen == false" class="mat-elevation-z2">
+  <div class="company-logo-fulllength left" title="sago&bull;fonto&reg; - et Artogis&reg; produkt - Gå til artogis.dk">
+    <a href="http://www.artogis.dk/" target="_blank">
+      <img src="{{sagofontoLogoUrl}}" />
+    </a>
+  </div>
+
+  <span class="fill-remaining-space"></span>
+
+  <span class="dashboard-title">{{title}}</span>
+
+  <span class="fill-remaining-space"></span>
+
+  <div class="company-logo-fulllength right" title="Gå til assensforsyning.dk">
+    <a href="https://www.assensforsyning.dk/" target="_blank">
+      <img src="{{customerLogoUrl}}" />
+    </a>
+  </div>
+
+  <!-- <div class="company-logo-fulllength right" title="Gå til artogis.dk">
+    <a href="http://www.artogis.dk/" target="_blank">
+      <img src="{{artogisLogoUrl}}" />
+    </a>
+  </div> -->
+
+
+
+</mat-toolbar>
+
+<div class="card-container">
+
+  <mat-card *ngIf="productionEnvironment == false"class="test-card">
+    <app-line-graph></app-line-graph>      
+  </mat-card>
+
+
+  <mat-card *ngFor="let card of state?.dashboard.cards" class="data-card" [attr.data-sensorid]="card.sensorId" [attr.data-tempid]="card.tempId">
+    
+    <app-raw-value 
+      *ngIf="card.cardType == 1" 
+      [attr.data-sensorid]="card.sensorId" 
+      [attr.data-tempid]="card.tempId" 
+      [attr.data-batterysensorid]="card.batterySensorId" 
+      [attr.data-signalsensorid]="card.signalSensorId"
+      [attr.data-calculationtype]="card.cardCalcuationType"
+      [attr.data-aggregationtype]="card.cardAggregationType"
+    ></app-raw-value>   
+
+    <app-line-chart-standard 
+      *ngIf="card.cardType == 2" 
+      [attr.data-sensorid]="card.sensorId" 
+      [attr.data-tempid]="card.tempId"
+      [attr.data-calculationtype]="card.cardCalcuationType"
+      [attr.data-aggregationtype]="card.cardAggregationType"
+    ></app-line-chart-standard>      
+  </mat-card>
+
+</div>

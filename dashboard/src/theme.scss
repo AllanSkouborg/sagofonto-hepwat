@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$dashboard-app-primary: mat-palette($mat-blue-grey);
+$dashboard-app-accent:  mat-palette($mat-pink, 500, 900, A100);
+$dashboard-app-warn:    mat-palette($mat-deep-orange);
+$dashboard-app-theme: mat-light-theme($dashboard-app-primary, $dashboard-app-accent, $dashboard-app-warn);
+
+@include angular-material-theme($dashboard-app-theme);

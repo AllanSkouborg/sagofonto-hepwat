@@ -1,0 +1,299 @@
+
+
+.card-content {
+	height: 50px;
+}
+
+
+.mat-card-title {
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 24px;
+	margin-bottom: 0px;
+}
+.flex-spacer {
+	flex: 1 1 auto;
+}
+
+
+
+.button-menu, .mat-button-wrapper {
+	font-size: 24px !important;	
+}
+
+.card-info-box {
+	height: 24px;
+	width: 268px;
+	margin-bottom: 10px;
+}
+
+// SENSOR
+.mat-card-content {
+	height: 110px;
+	margin-bottom: 5px;
+}
+.sensor-value {
+	height: 50px;
+    font-size: 4em;
+    text-align: center;
+    line-height: 50px;
+    margin-top: 60px!important;
+}
+.unit-value {
+	height: 50px;
+    font-size: 24px;
+    text-align: center;
+    line-height: 24px;
+    margin-top: 10px;
+}
+
+// LAST RUN
+.last-run-status {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	height: 24px;
+	width: 270px;
+}
+
+.last-run-status span {
+	display: flex;
+}
+
+.last-run-icon-and-value {
+
+}
+
+.last-run-icon {
+	float: left;
+    font-size: 20px;
+    line-height: 24px;
+    height: 24px;
+    text-align: left;
+
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+}
+.last-run-icon::before {
+	content: "\f017";
+}
+.last-run-value {
+	float: left;
+	//width: 160px;
+    height: 24px;
+    float: left;
+    line-height: 24px;
+    margin-left: 5px;
+}
+.last-run-spacer {
+	float: left;
+	height: 24px;
+    flex: 1;
+}
+
+// BATTERY
+.battery-status {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+.icon-battery {
+	float: left;
+	width: 40px;
+    margin: 0 15px 0 0;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: left;
+}
+.bar-battery-outer {
+	float: left;
+	height: 19px;
+	border: 1px solid rgb(140,140,140);
+	width: 160px;
+	margin: 0 0 0 0;
+	overflow: hidden;
+}
+.bar-battery-inner {
+	height: 30px;
+	//background: green;
+	width: 0px;
+}
+.battery-level-value {
+	width: 40px;
+    height: 20px;
+    float: right;
+    line-height: 20px;
+    margin: 0 0 0 0;
+    font-size: 20px;
+    text-align: right;
+}
+
+.battery-level-high { background-color: #00b500 }
+.battery-level-medium { background-color: #e4e61c }
+.battery-level-low { background-color: #cd3739 }
+
+
+.card-warning-overlay {
+	position: absolute;
+	z-index: 10;
+	right: 0px;
+	top: 0px;
+	height: 66px;
+	width: 66px;
+	padding: 0 10px 0 12px;
+}
+
+/*.warning-box {
+	height: 80px;
+    width: 90px;
+    background: #ffffff;
+    right: 6px;
+    position: relative;
+    top: 170px;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+}*/
+.card-warning-overlay.red .warning-box {
+	background: #cd3739;
+}
+.card-warning-overlay.yellow .warning-box {
+	background: #e4e61c;
+}
+.card-warning-overlay.gray .warning-box {
+	background: rgb(245,245,245);
+}
+
+.card-warning-overlay.red .card-warning-overlay-triangle, .card-warning-overlay.red .card-warning-overlay-direction-up, .card-warning-overlay.red .card-warning-overlay-direction-down {
+	color: #ffffff;
+}
+.card-warning-overlay.yellow .card-warning-overlay-triangle, .card-warning-overlay.yellow .card-warning-overlay-direction-up {
+	color: #000000;
+}
+
+.notification-content {
+	height: 50px;
+    width: 50px;
+    left: 29px;
+    position: absolute;
+    top: 118px;
+}
+
+.card-warning-icon {
+	font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+ 	font-size: 1.8em;
+ 	float: left;
+}
+.card-warning-overlay-triangle {
+	line-height: 47px;
+}
+
+.card-warning-overlay-triangle::before { content: "\f071"; }
+
+.card-warning-overlay-direction-up, .card-warning-overlay-direction-down { line-height: 44px }
+
+.card-warning-overlay-direction-up::before { content: "\f176"; }
+.card-warning-overlay-direction-down::before { content: "\f175"; }
+
+.card-warning-overlay-power-off {
+	line-height: 48px;
+	text-indent: 5px;
+}
+.card-warning-overlay-power-off::before {
+	content: "\f011";
+}
+
+.mat-card-footer {
+	display: flex;
+	margin: 10px -24px -24px -24px;
+}
+.footer-box {
+	height: 44px;
+	padding: 0 8px 0 8px;
+	float: left;
+	//background: red;
+	font-size: 1.2em;
+}
+.footer-flex {
+	flex: 1 1 auto;
+	float: left;
+}
+
+.footer-box-icon {
+	min-width: 20px;
+	float: left;
+
+	font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+}
+
+.footer-box.battery .footer-box-icon {
+	font-size: 1.3em;
+	line-height: 28px;
+}
+
+
+.battery-status-empty .footer-box-icon, .battery-status-empty .footer-box-value { color: red; }
+.disabled .battery-status-empty .footer-box-icon, .disabled .battery-status-empty .footer-box-value { color: rgb(245,245,245); }
+.battery-status-empty .footer-box-icon::before { content: "\f244"; }
+
+.battery-status-quarter .footer-box-icon, .battery-status-quarter .footer-box-value { color: red; }
+.disabled .battery-status-quarter .footer-box-icon, .disabled .battery-status-quarter .footer-box-value { color: rgb(245,245,245); }
+.battery-status-quarter .footer-box-icon::before { content: "\f243"; }
+
+.battery-status-half .footer-box-icon::before { content: "\f242"; }
+
+.battery-status-threequarters .footer-box-icon::before { content: "\f241"; }
+
+.battery-status-full .footer-box-icon::before { content: "\f240"; }
+
+
+.footer-box-icon.connection {
+	width: 24px;
+	height: 20px;
+	padding-top: 2px;
+}
+
+.footer-box-icon.connection .signal-bar {
+	background: black;
+	margin-right: 2px;
+	float: left;
+}
+.signal-bar-one { width: 4px; height: 5px; margin-top: 15px; }
+.signal-bar-two { width: 4px; height: 10px; margin-top: 10px; }
+.signal-bar-three { width: 4px; height: 15px; margin-top: 5px; }
+.signal-bar-four { width: 4px; height: 20px; }
+
+.signal-status-normal .signal-bar-four, .signal-status-normal .signal-bar-three, .signal-status-normal .signal-bar-two{
+	background: rgb(0,0,0) !important;
+}
+
+.signal-status-low .signal-bar-four { background: rgb(200,200,200) !important; }
+
+.signal-status-min .signal-bar-four, .signal-status-min .signal-bar-three { background: rgb(200,200,200) !important; }
+
+
+
+.footer-box-value {
+	min-width: 20px;
+	float: left;
+	margin-left: 5px;
+	line-height: 29px;
+}
+
+.disabled {
+  background: rgb(245,245,245) !important;
+  color: rgb(180,180,180) !important;
+}
+
+// ALARMS STATUS
+[data-alarmstatus="alarmMax"] {
+  background: red !important;
+}
