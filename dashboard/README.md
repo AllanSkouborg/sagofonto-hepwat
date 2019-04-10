@@ -35,7 +35,8 @@ You will need to install the necessary node modules by navigating to the app mai
 This might take a while as a lot of libraries are being fetched.
 
 When it’s done, you should see a new folder called node_modules, and it should be filled with a host of different libraries and modules.
-Now check that the app is operational by compiling and running a development version on localhost, port 4200, by typing:
+
+Now check that the app is operational by compiling and running a live development version on localhost, port 4200, by typing:
 
 `ng serve`
 
@@ -44,7 +45,7 @@ Port 4200 is the default. You can define another port by adding the port-option,
 
 `ng serve –-port=2398`
 
-To build the production version  of the app, type:
+To build the production version of the app, type:
 
 `ng build –-prod –-base-href=”/website/path/to/app/folder/”`
 
