@@ -54,8 +54,8 @@ The following procedure explaining how to install the DataRobotFactory is based 
 
 3. Create a Docker container (e.g. deployed on port 2000)
 
-        sudo docker run -dit --restart unless-stopped -p 2000:1880 --name hepwat-nodered-11 artogis/hepwat/node-red-11
+        sudo docker run -dit --restart unless-stopped -p 2000:1880 --name hepwat-nodered-20 artogis/hepwat/node-red-image
 
-4. Open <http://localhost:2000> and configure, enable and deploy the flow
+4. Open <http://localhost:2000> to configure, enable and redeploy the flow
 
         tbd
