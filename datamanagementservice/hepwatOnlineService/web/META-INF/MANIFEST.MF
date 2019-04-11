@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Implementation-Version: 1.0.0
+Build-Timestamp: 2019-04-08T12:51:30Z
+Build-Number: ReleaseBuild_1.0.0
+Built-By: margit.kjaer.bomholt
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_171
+Implementation-Vendor: artogis A/S
