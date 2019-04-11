@@ -1,0 +1,2444 @@
+swagger: '2.0'
+info:
+  description: This is a simple API
+  version: 1.0.0
+  title: Simple Inventory API
+  contact:
+    email: mkb@artogis.dk
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: admins
+    description: Secured Admin-only calls
+  - name: users
+    description: Operations available to regular users
+paths:
+  /objecttype:
+    get:
+      tags:
+        - admins
+      summary: get objecttypes
+      operationId: searchObjecttypes
+      description: |
+        By passing in the appropriate options, you can search for
+        available objecttypes in the system
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ObjectTypes'
+        '400':
+          description: bad input parameter
+    put:
+      tags:
+        - admins
+      summary: updates an objecttype item
+      operationId: updateObjecttype
+      description: updates an item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: objectType
+          description: ObjectType item to add
+          schema:
+            $ref: '#/definitions/ObjectType'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '500':
+          description: an existing item already exists
+    post:
+      tags:
+        - admins
+      summary: adds an objecttype item
+      operationId: addObjecttype
+      description: Adds an item to the system
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: objectType
+          description: ObjectType item to add
+          schema:
+            $ref: '#/definitions/ObjectType'
+      responses:
+        '200':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+  '/objecttype/{id}':
+    get:
+      tags:
+        - admins
+      summary: get objecttype for id
+      operationId: getObjecttype
+      description: get component type for id
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ObjectType'
+        '400':
+          description: bad input parameter
+    delete:
+      tags:
+        - admins
+      summary: delete objecttype for id
+      operationId: deleteObjecttype
+      description: delete objecttype for id
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: deletes item matching criteria
+        '400':
+          description: bad input parameter
+  '/objecttype/type/{type}':
+    get:
+      tags:
+        - admins
+      summary: get objecttype for type
+      operationId: getObjecttypeByType
+      description: get component type for type
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: type
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ObjectType'
+        '400':
+          description: bad input parameter
+  /componenttype:
+    get:
+      tags:
+        - admins
+      summary: get componenttypes
+      description: |
+        you can search for
+        available componenttypes in the system
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ComponentTypes'
+        '400':
+          description: bad input parameter
+    put:
+      tags:
+        - admins
+      summary: updates an componenttype item
+      operationId: updateComponenttype
+      description: Updates an item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: componentType
+          description: ComponentType item to add
+          schema:
+            $ref: '#/definitions/ComponentType'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+    post:
+      tags:
+        - admins
+      summary: adds an componenttype item
+      operationId: addComponenttype
+      description: Adds an item to the system
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: componentType
+          description: ComponentType item to add
+          schema:
+            $ref: '#/definitions/ComponentType'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+  '/componenttype/{id}':
+    get:
+      tags:
+        - admins
+      summary: get componenttypes
+      operationId: getComponenttype
+      description: get component type for id
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ComponentType'
+        '400':
+          description: bad input parameter
+    delete:
+      tags:
+        - admins
+      summary: delete componenttype for id
+      operationId: deleteComponenttype
+      description: delete component type for id
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: deletes item matching criteria
+        '400':
+          description: bad input parameter
+  '/componenttype/type/{type}':
+    get:
+      tags:
+        - admins
+      summary: get componenttypes
+      operationId: getComponenttypeByType
+      description: get component type for type
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: type
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ComponentType'
+        '400':
+          description: bad input parameter
+  /unconfigureddataio:
+    get:
+      tags:
+        - admins
+      summary: get unmananged measurements
+      operationId: searchUnmangedMeasurements
+      description: gets all unconfigured measurements
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: all unconfigu
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/UnconfiguredData'
+        '400':
+          description: bad input parameter
+  '/unconfigureddataio/{id}':
+    get:
+      tags:
+        - admins
+      summary: get unmananged measurements
+      operationId: getUnconfiguredMeasurement
+      description: gets the appropriate measurementdata
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: search results matching id
+          schema:
+            items:
+              $ref: '#/definitions/UnconfiguredData'
+        '400':
+          description: bad input parameter
+    put:
+      tags:
+        - admins
+      summary: updates an unconfigureddata
+      operationId: updateUnconfiguredDataStatus
+      description: Updates an item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+        - in: body
+          name: ConfiguredState
+          required: true
+          schema:
+            $ref: '#/definitions/ConfiguedState'
+      responses:
+        '201':
+          description: item updated
+        '400':
+          description: 'invalid input, object invalid'
+  /datasource:
+    get:
+      tags:
+        - admins
+      summary: get data sources
+      operationId: searchDataSources
+      description: get datasources
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DataSource'
+        '400':
+          description: bad input parameter
+  '/datasource/{id}':
+    get:
+      tags:
+        - admins
+      summary: get data source by id
+      operationId: getDataSource
+      description: gets the appropriate data source
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: search results matching id
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DataSource'
+        '400':
+          description: bad input parameter
+  /sensorobject:
+    get:
+      tags:
+        - admins
+      summary: get sensor objects
+      operationId: searchSensorObjects
+      description: get sensorobjets
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: all sensorobjects
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SensorObject'
+        '400':
+          description: bad input parameter
+  '/sensorobject/{datasourceid}':
+    get:
+      tags:
+        - admins
+      summary: get sensor object by id
+      operationId: getSensorObject
+      description: gets the appropriate sensor object
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: datasourceid
+          required: true
+          type: integer
+          format: int32
+        - in: query
+          name: sensorobjectid
+          required: true
+          type: string
+      responses:
+        '200':
+          description: search results matching id
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SensorObject'
+        '400':
+          description: bad input parameter
+    put:
+      tags:
+        - admins
+      summary: updates an sensorobject
+      operationId: updateSensorObjectStatus
+      description: Updates an item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: datasourceid
+          required: true
+          type: integer
+          format: int32
+        - in: query
+          name: sensorobjectid
+          required: true
+          type: integer
+          format: int32
+        - in: body
+          name: ConfiguredState
+          required: true
+          schema:
+            $ref: '#/definitions/ConfiguedState'
+      responses:
+        '201':
+          description: item updated
+        '400':
+          description: 'invalid input, object invalid'
+  /dataconfiguration:
+    get:
+      tags:
+        - admins
+      summary: get configuration
+      operationId: searchConfiguration
+      description: 'get all configured data, query not implemented yet'
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: includeRelations
+          description: pass wheeter relation info is wanted
+          required: false
+          type: boolean
+        - in: query
+          name: addTypeInfo
+          description: if true scription fields are added 
+          type: boolean
+      responses:
+        '200':
+          description: all configured data
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Configuration'
+        '400':
+          description: bad input parameter
+    put:
+      tags:
+        - admins
+      summary: edits an configuration  item
+      operationId: editConfiguration
+      description: edits an configuration item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: Configureddata
+          description: configuration that has changed
+          schema:
+            $ref: '#/definitions/Configuration'
+      responses:
+        '200':
+          description: item updated
+        '400':
+          description: 'invalid input, object invalid'
+    post:
+      tags:
+        - admins
+      summary: add an configuration  item
+      operationId: addConfiguration
+      description: adds an configuration item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: Configureddata
+          description: configuration that has changed
+          schema:
+            $ref: '#/definitions/Configuration'
+      responses:
+        '200':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+  '/dataconfiguration/{id}':
+    get:
+      tags:
+        - admins
+      summary: get configuration
+      operationId: getConfiguration
+      description: get configured data that  matches id - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: configured data
+          schema:
+            $ref: '#/definitions/Configuration'
+        '400':
+          description: bad input parameter
+    delete:
+      tags:
+        - admins
+      summary: delete configuration
+      operationId: deleteConfiguration
+      description: delete configured data that  matches id - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: delete configured data with id
+        '400':
+          description: bad input parameter
+  '/dataconfiguration/calculationtype/{calculationtype}':
+    get:
+      tags:
+        - admins
+      summary: get configuration
+      operationId: getConfigurationForCalculationtype
+      description: get configured data that  matches calculationtype
+      parameters:
+        - in: path
+          name: calculationtype
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: get matching configurations
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Configuration'
+        '400':
+          description: bad input parameter
+  /templateconfiguration:
+    get:
+      tags:
+        - admins
+      summary: get templateconfigurations
+      operationId: templateConfigurations
+      description: 'get all configured data'
+      produces:
+        - application/json
+
+      responses:
+        '200':
+          description: all configured data
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Templates'
+        '400':
+          description: bad input parameter
+    put:
+      tags:
+        - admins
+      summary: updates templateconfiguration
+      operationId: updatetemplateconfiguration
+      description: updates templateconfiguration
+      parameters:
+        - in: body
+          name: Template
+          required: true
+          schema:
+            $ref: '#/definitions/Template'
+      responses:
+        '200':
+          description: item updated
+        '400':
+          description: bad input parameter
+    post:
+      tags:
+        - admins
+      summary: inserts templateconfiguration
+      operationId: insertstemplateconfiguration
+      description: insert templateconfiguration
+      parameters:
+        - in: body
+          name: Template
+          required: true
+          schema:
+            $ref: '#/definitions/Template'
+      responses:
+        '200':
+          description: item updated
+        '400':
+          description: bad input parameter
+  '/templateconfiguration/{id}':
+    get:
+      tags:
+        - admins
+      summary: get templateconfiguration
+      operationId: templateConfiguration
+      description: 'get  one configured template'
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: configured template
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Template'
+        '400':
+          description: bad input parameter
+    delete:
+      tags:
+        - admins
+      summary: delete templateconfiguration
+      operationId: deletetemplateconfiguration
+      description: delete templateconfiguration that  matches id - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: delete configured data with id
+        '400':
+          description: bad input parameter
+  '/templateconfiguration/templatetype/{templatetype}':
+    delete:
+      tags:
+        - admins
+      summary: delete templateconfiguration
+      operationId: deletetemplateconfigurationwithtemplateid
+      description: >-
+        delete templateconfiguration that  matches templatetype -
+        application/json
+      parameters:
+        - in: path
+          name: templatetype
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: delete configured data with id
+        '400':
+          description: bad input parameter
+  /configurationformula:
+    put:
+      tags:
+        - admins
+      summary: validate configurationformula
+      operationId:  validateconfigurationformula
+      description:  validate configurationformula
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: configurationFormula
+          schema:
+            $ref: '#/definitions/ConfigurationFormula'
+        - in: query
+          name: measurementvalue
+          type: string
+      responses:
+        '200':
+          description: status
+        '400':
+          description: bad input parameter               
+  '/configurationformula/{calculationtype}':
+    get:
+      tags:
+        - admins
+      summary: get configurationformulas
+      operationId:  configurationformulas
+      description:  get all configurationformulas
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: calculationtype
+          type: integer
+          format: int32
+          required: true
+        - in: query
+          name: dataioid
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: configuration formulas for calculationtype
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ConfigurationFormula'
+        '400':
+          description: bad input parameter       
+  /measurementtemplate:
+    get:
+      tags:
+        - admins
+      summary: get templates for data
+      operationId: searchTemplates
+      description: |
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Template'
+        '400':
+          description: bad input parameter
+  '/measurementtemplate/{id}':
+    get:
+      tags:
+        - admins
+      summary: get meaurementtemplate
+      operationId: getMeasurementTemplate
+      description: get measurementtemplate that  matches id - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: configured data
+          schema:
+            $ref: '#/definitions/Template'
+        '400':
+          description: bad input parameter
+  /objectcomponentdatarelation:
+    get:
+      tags:
+        - admins
+      summary: get objectcomponentdatarelations
+      operationId: searchObjectcomponentdatarelations
+      description: |
+        By passing in the appropriate options, you can search for
+        available objectcomponentdatarelations in the system
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ObjectComponentDataIoRelation'
+        '400':
+          description: bad input parameter
+    post:
+      tags:
+        - admins
+      summary: add an objectcomponentdataiorelation item
+      operationId: addObjectComponentRelation
+      description: adds an object component dataio relation
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: ObjectComponentDataRelation
+          description: configuration that has changed
+          schema:
+            $ref: '#/definitions/ObjectComponentDataIoRelation'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+    put:
+      tags:
+        - admins
+      summary: updates an objectcomponentdataiorelation item
+      operationId: updatesObjectComponentRelation
+      description: adds an object component dataio relation
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: ObjectComponentDataRelation
+          description: configuration that has changed
+          schema:
+            $ref: '#/definitions/ObjectComponentDataIoRelation'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+  '/objectcomponentdatarelation/{id}':
+    get:
+      tags:
+        - admins
+      summary: get ObjectComponentdataIoRelation
+      operationId: getObjectComponentDataIoRelations
+      description: get ObjectComponentdataIoRelation that  matches id - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: configured data
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ObjectComponentDataIoRelation'
+        '400':
+          description: bad input parameter
+    put:
+      tags:
+        - admins
+      summary: updates ObjectComponentdataIoRelation endtime
+      operationId: updateObjectComponentDataIoRelation
+      description: updates ObjectComponentdataIoRelation that  matches id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: TimeUpdate
+          required: true
+          schema:
+            $ref: '#/definitions/TimeUpdate'
+      responses:
+        '200':
+          description: item updated
+        '400':
+          description: bad input parameter
+    delete:
+      tags:
+        - admins
+      summary: delete ObjectComponentdataIoRelation
+      operationId: deleteObjectComponentDataIoRelations
+      description: delete ObjectComponentdataIoRelation that  matches id - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: deleted id returned
+        '400':
+          description: bad input parameter
+  '/objectcomponentdatarelation/component/{id}':
+    get:
+      tags:
+        - admins
+      summary: get ObjectComponentdataIoRelations for component
+      operationId: getObjectComponentDataIoRelationsForComponent
+      description: get ObjectComponentdataIoRelation that  matches id - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+        - in: query
+          name: componenttype
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: configured data
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ObjectComponentDataIoRelation'
+        '400':
+          description: bad input parameter
+    delete:
+      tags:
+        - admins
+      summary: delete ObjectComponentdataIoRelation for component
+      operationId: deleteObjectComponentDataIoRelationsForComponent
+      description: delete ObjectComponentdataIoRelation that  matches id - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+        - in: query
+          name: componenttype
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: deleted id returned
+        '400':
+          description: bad input parameter
+  '/objectcomponentdatarelation/object/{value}':
+    get:
+      tags:
+        - admins
+      summary: get ObjectComponentdataIoRelations for object
+      operationId: getObjectComponentDataIoRelationsForObject
+      description: get ObjectComponentdataIoRelation that  matches id - application/json
+      parameters:
+        - in: path
+          name: value
+          required: true
+          type: string
+          format: striing
+        - in: query
+          name: field
+          required: true
+          type: string
+          format: striing
+        - in: query
+          name: fieldtype
+          required: true
+          type: string
+          format: string
+        - in: query
+          name: objecttype
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: configured data
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ObjectComponentDataIoRelation'
+        '400':
+          description: bad input parameter
+    delete:
+      tags:
+        - admins
+      summary: delete ObjectComponentdataIoRelation for object
+      operationId: deleteObjectComponentDataIoRelationsForObject
+      description: delete ObjectComponentdataIoRelation that  matches id - application/json
+      parameters:
+        - in: path
+          name: value
+          required: true
+          type: string
+          format: striing
+        - in: query
+          name: field
+          required: true
+          type: string
+          format: striing
+        - in: query
+          name: fieldtype
+          required: true
+          type: string
+          format: string
+        - in: query
+          name: objecttype
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: deleted id returned
+        '400':
+          description: bad input parameter
+  '/objectcomponentdatarelation/dataio/{id}':
+    get:
+      tags:
+        - admins
+      summary: get ObjectComponentdataIoRelations for dataIo
+      operationId: getObjectComponentDataIoRelationsForDataIo
+      description: get ObjectComponentdataIoRelation that  matches id - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: configured data
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ObjectComponentDataIoRelation'
+        '400':
+          description: bad input parameter
+    delete:
+      tags:
+        - admins
+      summary: delete ObjectComponentdataIoRelation for dataIo
+      operationId: deleteObjectComponentDataIoRelationsForDataIo
+      description: delete ObjectComponentdataIoRelation that  matches id - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: deleted id returned
+        '400':
+          description: bad input parameter
+  /datastore:
+    get:
+      tags:
+        - admins
+      summary: get datastores
+      description: get available datastores
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DataStore'
+        '400':
+          description: bad input parameter
+    put:
+      tags:
+        - admins
+      summary: updates an datastore item
+      operationId: updateDatastore
+      description: Updates an item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: datastore
+          description: DataStore item to add
+          schema:
+            $ref: '#/definitions/DataStore'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+    post:
+      tags:
+        - admins
+      summary: adds an datastore item
+      operationId: addDatastore
+      description: Adds an item to the system
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: componentType
+          description: ComponentType item to add
+          schema:
+            $ref: '#/definitions/DataStore'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+  '/datastore/{id}':
+    get:
+      tags:
+        - admins
+      summary: get datastore
+      operationId: getDatastore
+      description: get datastore type for id
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DataStore'
+        '400':
+          description: bad input parameter
+    delete:
+      tags:
+        - admins
+      summary: delete datastore
+      operationId: deleteDatastore
+      description: delete datastore type for id
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: delete item matching criteria
+        '400':
+          description: bad input parameter
+  /measurementtype:
+    get:
+      tags:
+        - admins
+      summary: get measurementtypes
+      description: get available measurementtypes
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeasurementType'
+        '400':
+          description: bad input parameter
+    put:
+      tags:
+        - admins
+      summary: updates an datastore item
+      operationId: updateMeasurementType
+      description: Updates an item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: datastore
+          description: DataStore item to add
+          schema:
+            $ref: '#/definitions/MeasurementType'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+    post:
+      tags:
+        - admins
+      summary: adds an measurementtype item
+      operationId: addMeasurementType
+      description: Adds an item to the system
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: measurementType
+          description: MeasurementType item to add
+          schema:
+            $ref: '#/definitions/MeasurementType'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+  '/measurementtype/{id}':
+    get:
+      tags:
+        - admins
+      summary: get measurementType
+      operationId: getMeasurementType
+      description: get measurementtype type for id
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeasurementType'
+        '400':
+          description: bad input parameter
+    delete:
+      tags:
+        - admins
+      summary: delete measurementtype
+      operationId: deleteMeasurementType
+      description: delete  measurementtype type for id
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: deletes measurementtype matching criteria
+        '400':
+          description: bad input parameter
+  /unit:
+    get:
+      tags:
+        - admins
+      summary: get units
+      description: get available units
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: language
+          type: string
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Unit'
+        '400':
+          description: bad input parameter
+  '/unit/{id}':
+    get:
+      tags:
+        - admins
+      summary: get unit
+      operationId: getUnit
+      description: get unit for id
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+        - in: query
+          name: language
+          required: true
+          type: string
+      responses:
+        '200':
+          description: search result matching criteria
+          schema:
+            $ref: '#/definitions/Unit'
+        '400':
+          description: bad input parameter
+  /calculationandstore:
+    get:
+      tags:
+        - admins
+      summary: get calculationandstores
+      description: get available calculationandstores
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CalculationsAndStore'
+        '400':
+          description: bad input parameter
+    put:
+      tags:
+        - admins
+      summary: updates an calculationandstore item
+      operationId: updatCalculationandstores
+      description: Updates an item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: datastore
+          description: calculationandstore item to add
+          schema:
+            $ref: '#/definitions/CalculationsAndStore'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+    post:
+      tags:
+        - admins
+      summary: adds an calculationandstores item
+      operationId: addCalculationandstores
+      description: Adds an item to the system
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: calculationandstores
+          description: calculationandstores item to add
+          schema:
+            $ref: '#/definitions/CalculationsAndStore'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+  '/calculationandstore/{dataioid}':
+    get:
+      tags:
+        - admins
+      summary: get calculationandstores from id
+      operationId: getCalculationandstores
+      description: get datastore type for id
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: calculation
+          required: true
+          type: integer
+          format: int32
+        - in: path
+          name: dataioid
+          required: true
+          type: integer
+          format: int32
+        - in: query
+          name: templatetype
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            $ref: '#/definitions/CalculationsAndStore'
+        '400':
+          description: bad input parameter
+    delete:
+      tags:
+        - admins
+      summary: delete calculationandstores from id
+      operationId: deleteCalculationandstores
+      description: >-
+        delete deleteCalculationandstores type for id, if id less than 0 it will
+        not be used as a criteria (equals wildcard)
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: calculation
+          required: true
+          type: integer
+          format: int32
+        - in: path
+          name: dataioid
+          required: true
+          type: integer
+          format: int32
+        - in: query
+          name: templatetype
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: deletes matching criteria
+        '400':
+          description: bad input parameter
+  '/calculationandstore/templateid/{templateid}':
+    get:
+      tags:
+        - admins
+      summary: get calculationandstores from id
+      operationId: getCalculationandstoresfortemplate
+      description: get datastore type for id
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: templateid
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            $ref: '#/definitions/CalculationsAndStore'
+        '400':
+          description: bad input parameter      
+  /aggregationtype:
+    get:
+      tags:
+        - admins
+      summary: get aggregationtypes
+      description: get available aggregationtypes
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AggregationType'
+        '400':
+          description: bad input parameter
+    put:
+      tags:
+        - admins
+      summary: updates an aggregationtype item
+      operationId: updatAggregationtypes
+      description: Updates an item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: datastore
+          description: aggregationtype item to add
+          schema:
+            $ref: '#/definitions/AggregationType'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+    post:
+      tags:
+        - admins
+      summary: adds an aggregationtype item
+      operationId: addAggregationtype
+      description: Adds an item to the system
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: calculationandstores
+          description: calculationandstores item to add
+          schema:
+            $ref: '#/definitions/AggregationType'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+  '/aggregationtype/{id}':
+    get:
+      tags:
+        - admins
+      summary: get aggregationtype from id
+      operationId: getAggregationtype
+      description: get datastore type for id
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            $ref: '#/definitions/AggregationType'
+        '400':
+          description: bad input parameter
+    delete:
+      tags:
+        - admins
+      summary: delete aggregationtype from id
+      operationId: deleteAggregationtype
+      description: delete aggregationtype type for id
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: search results matching criteria
+        '400':
+          description: bad input parameter
+  /calculationtype:
+    get:
+      tags:
+        - admins
+      summary: get calculationtypes
+      description: get available calculationtypes
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CalculationType'
+        '400':
+          description: bad input parameter
+  /aggregationcalculationtype:
+    get:
+      tags:
+        - admins
+      summary: get aggregationcalculationtypes
+      description: get available aggregationcalculationtypes
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AggregationCalculationTypes'
+        '400':
+          description: bad input parameter
+  '/aggregationcalculationtype/{id}':
+    get:
+      tags:
+        - admins
+      summary: get aggregationcalculationtype from id
+      operationId: getaggregationcalculationtype
+      description: get aggregationcalculationtype type for id
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            $ref: '#/definitions/CalculationsAndStore'
+        '400':
+          description: bad input parameter
+  /bigdatastore:
+    get:
+      tags:
+        - admins
+      summary: get bigdatastore
+      description: get available bigdatastore
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BigDataStore'
+        '400':
+          description: bad input parameter        
+  /data/:
+    get:
+      tags:
+        - admins
+      summary: get aggregationtype from id
+      operationId: getdataforperiode
+      description: get data for a periode for id
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: id
+          required: true
+          type: integer
+          format: int32
+        - in: query
+          name: starttime
+          required: true
+          type: string
+          format: datetime
+        - in: query
+          name: endtime
+          required: true
+          type: string
+          format: datetime
+        - in: query
+          name: aggtype
+          required: true
+          type: integer
+          format: int32
+        - in: query
+          name: calctype
+          required: true
+          type: integer
+          format: int32
+        - in: query
+          name: limit
+          required: false
+          type: integer
+          format: int32
+        - in: query
+          name: lasttimestamp
+          required: false
+          type: number
+          format: int64
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AggregationType'
+        '400':
+          description: bad input parameter
+  /servicesconfiguration:
+    get:
+      tags:
+        - admins
+      summary: get servicesconfiguration
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: get all services configurations
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ServiceConfiguration'
+        '400':
+          description: bad input parameter
+    put:
+      tags:
+        - admins
+      summary: updates an serviceconfiguration item
+      operationId: updateServiceConfiguration
+      description: Updates an item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: componentType
+          description: ComponentType item to add
+          schema:
+            $ref: '#/definitions/ServiceConfiguration'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+    post:
+      tags:
+        - admins
+      summary: adds an serviceconfiguration item
+      operationId: addServiceConfiguration
+      description: Adds an item to the system
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: componentType
+          description: ComponentType item to add
+          schema:
+            $ref: '#/definitions/ServiceConfiguration'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+  '/servicesconfiguration/{id}':
+    get:
+      tags:
+        - admins
+      summary: get serviceconfiguration
+      operationId: getServicesconfiguration
+      description: get serviceconfiguration for id
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ServiceConfiguration'
+        '400':
+          description: bad input parameter
+    delete:
+      tags:
+        - admins
+      summary: delete serviceconfiguration for id
+      operationId: deleteServicesConfiguration
+      description: delete serviceconfiguration type for id
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+          format: string
+      responses:
+        '200':
+          description: deletes item matching criteria
+        '400':
+          description: bad input parameter
+  /processingconfig:
+    get:
+      tags:
+        - admins
+      summary: get processingconfig
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: get all services configurations
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ProcessingConfig'
+        '400':
+          description: bad input parameter
+    put:
+      tags:
+        - admins
+      summary: updates an processingConfig item
+      operationId: updateProcessingConfig
+      description: Updates an item
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: ProcessingConfig
+          description: ProcessingConfig item to add
+          schema:
+            $ref: '#/definitions/ProcessingConfig'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+    post:
+      tags:
+        - admins
+      summary: adds an processingconfig item
+      operationId: addProcessingConfig
+      description: Adds an item to the system
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: ProcessingConfig
+          description: ProcessingConfig item to add
+          schema:
+            $ref: '#/definitions/ProcessingConfig'
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+  '/processingconfig/{aggtype}':
+    get:
+      tags:
+        - admins
+      summary: get ProcessingConfig
+      operationId: getProcessingConfig
+      description: get ProcessingConfig for aggtype
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: aggtype
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ProcessingConfig'
+        '400':
+          description: bad input parameter
+    delete:
+      tags:
+        - admins
+      summary: delete ProcessingConfig for aggtype
+      operationId: deleteProcessingConfig
+      description: delete ProcessingConfig type for aggtype
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: aggtype
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: deletes item matching criteria
+        '400':
+          description: bad input parameter        
+  '/processingconfig/aggtypes/{calctype}':
+    get:
+      tags:
+        - admins
+      summary: get ProcessingConfig
+      operationId: getProcessingConfigforCalctype
+      description: get ProcessingConfig for calctype
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: calctype
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ProcessingConfig'
+        '400':
+          description: bad input parameter  
+  '/processingconfig/calctypes/{aggtype}':
+    get:
+      tags:
+        - admins
+      summary: get ProcessingConfig
+      operationId: getProcessingConfigforAggtype
+      description: get ProcessingConfig for aggtype
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: aggtype
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ProcessingConfig'
+        '400':
+          description: bad input parameter       
+definitions:
+  ObjectType:
+    type: object
+    required:
+      - id
+      - name
+      - dataStore
+      - editDate
+    properties:
+      id:
+        type: string
+        format: uuid
+        example: d290f1ee-6c54-4b01-90e6-d701748f0851
+      name:
+        type: string
+        example: Pumpstation
+      objectTableName:
+        type: string
+        example: Pumpestationer
+      wfs:
+        type: string
+        example: 'http://server3x3/ags3x/xxxxx'
+      wfsLayer:
+        type: string
+        example: dandas_ra
+      fieldId:
+        type: string
+      fieldName:
+        type: string
+      fieldDescription:
+        type: string  
+      zOrder:
+        type: integer
+      keyDescriptions:
+        $ref: '#/definitions/ObjectKeys'
+      editDate:
+        type: string
+        format: date-time
+        example: 2016-08-29T09:12:33.001Z
+      dataStore:
+        $ref: '#/definitions/DataStore'
+  ObjectTypes:
+    type: array
+    items:
+      $ref: '#/definitions/ObjectType'
+  ComponentType:
+    type: object
+    required:
+      - id
+      - name
+      - dataStore
+      - editDate
+    properties:
+      id:
+        type: string
+        format: uuid
+        example: d290f1ee-6c54-4b01-90e6-d701748f0851
+      name:
+        type: string
+        example: Widget Adapter
+      editDate:
+        type: string
+        format: int
+        example: 2016-08-29T09:12:33.001Z
+      componentTableName:
+        type: string
+        example: Pumper
+      wfs:
+        type: string
+        example: 'http://server3x3/ags3x/xxxxx'
+      wfsLayer:
+        type: string
+        example: termometer
+      fieldId:
+        type: string
+      fieldName:
+        type: string
+      fieldDescription:
+        type: string  
+      zOrder:
+        type: integer  
+      dataStore:
+        $ref: '#/definitions/DataStore'
+  ComponentTypes:
+    type: array
+    items:
+      $ref: '#/definitions/ComponentType'
+  UnconfiguredData:
+    type: object
+    required:
+      - id
+      - configured
+    properties:
+      id:
+        type: integer
+        example: 300000
+      dataSourceId:
+        type: integer
+        example: 2001
+      sensorObjectId:
+        type: string
+        example: 4711
+      sensorObjectNodeId:
+        type: string
+        example: 4711A
+      configured:
+        type: boolean
+  UnconfiguredDatas:
+    type: array
+    items:
+      $ref: '#/definitions/UnconfiguredData'
+  DataSource:
+    type: object
+    required:
+      - datasource_id
+    properties:
+      datasource_id:
+        type: integer
+        example: 1010
+      name:
+        type: string
+        example: IoT Devices
+      url:
+        type: string
+        example: 'https://iot.dk/api'
+      authentication_type:
+        type: string
+        example: Certificates
+      description:
+        type: string
+        example: IoT Devices
+      username:
+        type: string
+        example: admin
+      password:
+        type: string
+        example: password
+      dashboard_url:
+        type: string
+        example: 'http://localhost:1880/ui'
+      robot_started:
+        type: boolean
+        example: true
+      notification_on:
+        type: boolean
+        example: false
+  SensorObject:
+    type: object
+    required:
+      - sensor_object_id
+    properties:
+      datasource_id:
+        type: integer
+        example: 1010
+      sensor_object_id:
+        type: string
+        example: 571313144500777150
+      name:
+        type: string
+        example: IoT Device
+      description:
+        type: string
+        example: IoT Device
+      configured:
+        type: boolean
+        example: false
+      location:
+        type: string
+        example: x y
+      ogr_geometry:
+        type: string
+        example: 01010000020E...
+  Configuration:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 10001
+      name:
+        type: string
+        example: Energy meter
+      sensorId:
+        type: string
+        example: 5601PST107MO01_KWH
+      description:
+        type: string
+        example: VALUE
+      alias:
+        type: string
+        example: EM
+      measurementType:
+        type: string
+        example: Energi measurement
+      relation:
+        $ref: '#/definitions/ObjectComponentDataIoRelation'
+      calculationsAndStores:
+        $ref: '#/definitions/CalculationsAndStores'
+  Template:
+    type: object
+    properties:
+      id:
+        type: string
+        example: 4a077c1a-0b28-11e8-ba89-0ed5f89f718b
+      measurementName:
+        type: string
+        example: Energy meter
+      measurementAlias:
+        type: string
+        example: EM
+      measurementType:
+        type: integer
+        example: 1
+      measurementTypeText:
+        type: string
+        example: Energi measurement
+      calculationsAndStores:
+        $ref: '#/definitions/CalculationsAndStores'
+  Templates:
+    type: array
+    items:
+      $ref: '#/definitions/Template'
+  ConfigurationFormula:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 10001
+      formula:
+        type: string
+        example: 100-{{sensor_data}}
+  CalculationsAndStores:
+    type: array
+    items:
+      $ref: '#/definitions/CalculationsAndStore'
+  CalculationsAndStore:
+    type: object
+    properties:
+      formula:
+        type: string
+        example: raw*2
+      aggregationsAndStores:
+        $ref: '#/definitions/AggregationsAndStores'
+  AggregationAndStore:
+    type: object
+    properties:
+      aggregationType:
+        type: integer
+        example: 1
+      aggregationName:
+        type: string
+        example: Average
+      aggregationMinutes:
+        type: integer
+        example: 5
+      store:
+        type: boolean
+        example: false
+      unit:
+        type: string
+        example: kWh
+      scaleToUnit:
+        type: number
+  AggregationsAndStores:
+    type: array
+    items:
+      $ref: '#/definitions/AggregationAndStore'
+  ObjectKeys:
+    type: array
+    items:
+      $ref: '#/definitions/ObjectKey'
+  ObjectKey:
+    type: object
+    properties:
+      field:
+        type: string
+        example: id
+      type:
+        type: string
+        example: integer
+      value:
+        type: string
+        example: '100'
+  ObjectComponentDataIoRelation:
+    type: object
+    properties:
+      objectKeys:
+        $ref: '#/definitions/ObjectKeys'
+      objectType:
+        type: integer
+        example: 1
+      componentType:
+        type: integer
+        example: 1
+      componentKey:
+        type: integer
+        example: 10001
+      relationType:
+        type: integer
+        example: 1
+      dataIoType:
+        type: integer
+        example: 1
+      dataIoKey:
+        type: integer
+        example: 10001
+  DataStore:
+    required:
+      - server
+    properties:
+      id:
+        type: integer
+        example: 22
+      server:
+        type: string
+        example: server3x3
+      port:
+        type: string
+        format: int32
+        example: 5432
+      database:
+        type: string
+        example: DanDas
+      schema:
+        type: string
+        example: public
+      user:
+        type: string
+        example: username
+      passw:
+        type: string
+        example: password
+  BigDataStore:
+    required:
+      - server
+    properties:
+      id:
+        type: integer
+        example: 1
+      server:
+        type: string
+        example: hepwatserver
+      port:
+        type: string
+        format: int32
+        example: 270
+      database:
+        type: string
+        example: TestHepwatserver
+      name:
+        type: string
+        example: TestData
+      user:
+        type: string
+        example: username
+      passw:
+        type: string
+        example: password      
+  MeasurementType:
+    properties:
+      id:
+        type: integer
+        example: 22
+      name:
+        type: string
+        example: Energy
+  AggregationType:
+    properties:
+      id:
+        type: integer
+        example: 1
+      name:
+        type: string
+        example: Energy
+      minutes:
+        type: integer
+        example: 60
+  CalculationType:
+    properties:
+      id:
+        type: integer
+        example: 1
+      name:
+        type: string
+        example: Energy
+  AggregationCalculationType:
+    properties:
+      id:
+        type: integer
+        example: 1
+      name:
+        type: string
+        example: Sum
+      formula: 
+        type: string
+        example: Not used
+  AggregationCalculationTypes:
+    type: array
+    items:
+      $ref: '#/definitions/AggregationCalculationType'      
+  Unit:
+    properties:
+      id:
+        type: integer
+        example: 1
+      name:
+        type: string
+        example: null
+      description:
+        type: string
+      language:
+        type: string
+  ConfiguedState:
+    properties:
+      configued:
+        type: boolean
+        example: true
+  TimeUpdate:
+    properties:
+      time:
+        type: string
+        example: '17-07-2018 12:00:00'
+  ServiceConfiguration:
+    properties:
+      serviceId:
+        type: integer
+        example: 1
+      name:
+        type: string
+        example: null
+      description:
+        type: string
+      type:
+        type: string
+      kafkaBroker:
+        type: string
+      clientId:
+        type: string
+      topicGroupId:
+        type: string
+      seektoEnd:
+        type: boolean
+      autoOffSet:
+        type: string
+      calculationTypesString:
+        type: string
+      aggregationTypesString:
+        type: string
+      outputTopic:
+        type: string
+      stateTopic: 
+        type: string
+      mongoDbDataStoreId:
+        type: integer
+      serviceCalcType:
+        type: integer
+      serviceAggType:
+        type: integer
+      inputTopic:  
+        type: string
+      stateDir:
+        type: string
+      commitInterval:
+        type: integer
+      skipFilter:  
+        type: boolean
+      recycleDataInterval:
+        type: integer
+  ProcessingConfig:
+    properties:
+      aggType:
+        type: integer
+      calcType:
+        type: integer
+      topic:
+        type: string
+      collection:
+        type: string
+      store:
+        type: integer
+  
+        
+host: 'hepwatserver:8083'
+basePath: /hepwatRestService3/rest
+schemes:
+  - http
