@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.apache.kafka:kafka-streams:0.11.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.kafka:connect-json:0.11.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.kafka:connect-api:0.11.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.rocksdb:rocksdbjni:5.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.kafka:kafka-clients:0.11.0.0" level="project" />
+    <orderEntry type="library" name="Maven: net.jpountz.lz4:lz4:1.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.xerial.snappy:snappy-java:1.1.2.6" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.10" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.10" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.10" level="project" />
+    <orderEntry type="library" name="Maven: log4j:log4j:1.2.16" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.25" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-common:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: javax.ws.rs:javax.ws.rs-api:2.0.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.annotation:javax.annotation-api:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.bundles.repackaged:jersey-guava:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:hk2-api:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:hk2-utils:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2.external:aopalliance-repackaged:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2.external:javax.inject:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:hk2-locator:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Maven: org.javassist:javassist:3.18.1-GA" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:osgi-resource-locator:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-client:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: dk.artogis.hepwat:common:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:mongo-java-driver:3.4.2" level="project" />
+    <orderEntry type="library" name="Maven: dk.artogis.hepwat:baseconfiguration.calculation:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: dk.artogis.hepwat:baseconfiguration.dataio:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: dk.artogis.hepwat:baseconfiguration.object:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: dk.artogis.hepwat:baseconfiguration.datastore:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: dk.artogis.hepwat:baseconfiguration.relation:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: dk.artogis.hepwat:baseconfiguration.measurement:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: dk.artogis.hepwat:baseconfiguration.dataconfig:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: dk.artogis.hepwat:services.configuration:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.2" level="project" />
+  </component>
+</module>
