@@ -1,0 +1,23 @@
+{
+  "name": "node-red-sagofonto",
+  "node-red": {
+    "nodes": {
+      "sagofonto-schema-registry": "schema-registry/schema-registry.js",
+      "sagofonto-avro": "avro-nodes/avro.js",
+      "sagofonto-kafka-producer": "kafka/kafka-producer.js",
+      "sagofonto-opcua-nodeCrawler": "opcua/opcua-node-crawler.js",
+      "sagofonto-log-backup": "log-backup/log-backup.js",
+      "sagofonto-ftp": "ftp/ftp.js",
+      "sagofonto-coord-transform": "coord-transform/coord-transform.js",
+      "sagofonto-sigfox-token": "sigfox-token/sigfox-token.js"
+    }
+  },
+  "dependencies": {
+    "avro-js": "^1.8.2",
+    "kafka-node": "2.3.0",
+    "node-opcua": "^0.1.1-0",
+    "gdal": "^0.9.6",
+    "ftp": "0.x",
+    "request": "^2.88.0"
+  }
+}

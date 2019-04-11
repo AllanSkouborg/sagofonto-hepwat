@@ -1,0 +1,49 @@
+﻿<script type="text/javascript">
+
+    RED.nodes.registerType('sagofonto-opcua-nodeCrawler', {
+
+        category: 'sago•fonto',
+        paletteLabel: 'OpcUA NodeCrawler',
+
+        color: '#71B2C9',
+
+        defaults: {
+            opcuaServerEndpoint: { value: "opc.tcp://srv2012r2iis:12403/IGSS/IGSSOpcUaServer", required: false },
+            rootTopic: { value: "ns=2;s=0:IGSS Objects/(All)", required: false },
+        },
+
+        inputs:1,
+        outputs: 1,
+
+        icon: "sagofonto.png",
+        label: function() {
+            return this.name || "OpcUA NodeCrawler";
+        },
+        labelStyle: function() {
+            return this.name ? "node_label_italic" : "";
+        },
+    });
+
+</script>
+
+<script type="text/x-red" data-template-name="sagofonto-opcua-nodeCrawler">
+
+    <div class="form-row">
+        <span><i class="icon-tag"></i><b>General:</b></span>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-opcuaServerEndpoint"> Host</label>
+        <input type="text" id="node-input-opcuaServerEndpoint" placeholder="opc.tcp://<servername/ip>:12403/IGSS/IGSSOpcUaServer">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-rootTopic"> Root Topic</label>
+        <input type="text" id="node-input-rootTopic" placeholder="ns=2;s=0:IGSS Objects/(All)">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="sagofonto-opcua-nodeCrawler">
+
+
+</script>

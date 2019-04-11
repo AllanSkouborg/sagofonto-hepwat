@@ -1,0 +1,46 @@
+<script type="text/javascript">
+
+    RED.nodes.registerType('sagofonto-log-backup', {
+		paletteLabel: "Log Backup",
+		category: 'sago•fonto',
+
+		color: '#71B2C9',
+
+        defaults: {
+			name: {value: ""},
+            sourcePath: {value:"/usr/src/node-red/"},
+			sourceFilename: {value:"hepwat.log"},
+			destPath: {value:"/usr/src/node-red/logs/"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "sagofonto.png",
+        label: function() {
+            return this.name||"Log Backup";
+        }
+    });
+	
+</script>
+
+<script type="text/x-red" data-template-name="sagofonto-log-backup">
+	<div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Log Backup">
+    </div>
+    <div class="form-row">
+        <label for="node-input-sourcePath"><i class="icon-tag"></i> sourcePath</label>
+        <input type="text" id="node-input-sourcePath"  placeholder="/usr/src/node-red/">
+	</div>
+    <div class="form-row">
+        <label for="node-input-sourceFilename"><i class="icon-tag"></i> sourceFilename</label>
+        <input type="text" id="node-input-sourceFilename" placeholder="hepwat.log">
+	</div>
+    <div class="form-row">
+        <label for="node-input-destPath"><i class="icon-tag"></i> destPath</label>
+        <input type="text" id="node-input-destPath" placeholder="/usr/src/node-red/logs/">
+	</div>
+</script>
+
+<script type="text/x-red" data-help-name="sagofonto-log-backup">
+    <p>A node to define path to and name of log file and define path to backup file. Backup file will be named as log file but added a timestamp.</p>
+</script>

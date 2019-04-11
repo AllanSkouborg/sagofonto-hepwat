@@ -1,0 +1,56 @@
+<script type="text/javascript">
+
+    RED.nodes.registerType('sagofonto-coord-transform', {
+		paletteLabel: "Coordinate Transformation",
+		category: 'sago•fonto',
+
+		color: '#71B2C9',
+
+        defaults: {
+			name: {value: ""},
+            sourceX: {value:9.534475},
+			sourceY: {value:55.529096},
+			sourceZ: {value:0}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "sagofonto.png",
+        label: function() {
+            return this.name||"Coordinate Transformation";
+        }
+    });
+	
+</script>
+
+<script type="text/x-red" data-template-name="sagofonto-coord-transform">
+	<div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Coordinate Transformation">
+    </div>
+    <div class="form-row">
+        <label for="node-input-sourceX"><i class="icon-tag"></i> sourceX</label>
+        <input type="number" id="node-input-sourceX"  placeholder=9.534475>
+	</div>
+    <div class="form-row">
+        <label for="node-input-sourceY"><i class="icon-tag"></i> sourceY</label>
+        <input type="number" id="node-input-sourceY" placeholder=55.529096>
+	</div>
+	<div class="form-row">
+        <label for="node-input-sourceZ"><i class="icon-tag"></i> sourceZ</label>
+        <input type="number" id="node-input-sourceZ" placeholder=0.000000>
+	</div>
+</script>
+
+<script type="text/x-red" data-help-name="sagofonto-coord-transform">
+	<h1>Overview</h1>
+
+    <p>A node to transform coordinates from EPSG 4326 to EPSG 25832 with use of the GDAL library.</p>
+	
+	<h1>Configuration</h1>
+	
+	<p>Longitude should be provided as the X coordinate and latitude as the Y coordinate.
+       Please be advised that GPS coordinates often are given in the opposite order as latitude, longitude.</p>
+	
+	<p>Coordinates can be entered as input by editing the node properties but can also be given by a function node
+	   by adding them as msg.sourceX, msg.sourceY, msg.sourceZ to the msg object.</p>
+</script>

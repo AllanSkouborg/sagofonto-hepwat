@@ -1,0 +1,46 @@
+<script type="text/javascript">
+
+    RED.nodes.registerType('sagofonto-schema-registry', {
+		paletteLabel: "Schema Registry",
+		category: 'sago•fonto',
+
+		color: '#71B2C9',
+
+        defaults: {
+            name: {value:"Schema Registry"},
+			host: {value:"localhost"},
+			port: {value:"8081"},
+			subject: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "sagofonto.png",
+        label: function() {
+            return this.name||"Schema Registry";
+        }
+    });
+	
+</script>
+
+<script type="text/x-red" data-template-name="sagofonto-schema-registry">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name">
+	</div>
+    <div class="form-row">
+        <label for="node-input-host"><i class="icon-tag"></i> Host</label>
+        <input type="text" id="node-input-host">
+	</div>
+    <div class="form-row">
+        <label for="node-input-port"><i class="icon-tag"></i> Port</label>
+        <input type="text" id="node-input-port">
+	</div>
+    <div class="form-row">
+        <label for="node-input-subject"><i class="icon-tag"></i> Subject</label>
+        <input type="text" id="node-input-subject">
+	</div>
+</script>
+
+<script type="text/x-red" data-help-name="sagofonto-schema-registry">
+    <p>A node to retrieve schema id, version and avro definition from an instance of Confluent Schema Registry</p>
+</script>

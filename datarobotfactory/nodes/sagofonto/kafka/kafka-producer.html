@@ -1,0 +1,106 @@
+<script type="text/javascript">
+
+    RED.nodes.registerType('sagofonto-kafka-producer', {
+
+        category: 'sago•fonto',
+        paletteLabel: 'Kafka Producer',
+
+        color: '#71B2C9',
+
+        defaults: {
+            kafkaHost: { value: "localhost:9092", required: true },
+            connectTimeout: { value: "10000", required: true },
+            requestTimeout: { value: "30000", required: true },
+			requireAcks: { value: "1", required: true },
+			ackTimeoutMs: { value: "100", required: true },
+			partitionerType: { value: "3", required: true },
+			topicName: { value: "", required: true },
+			compressionOption: { value: "0", required: true },
+        },
+
+        inputs:1,
+        outputs: 1,
+
+        icon: "sagofonto.png",
+        label: function() {
+            return this.name || "Kafka Producer";
+        },
+        labelStyle: function() {
+            return this.name ? "node_label_italic" : "";
+        },
+    });
+
+</script>
+
+<script type="text/x-red" data-template-name="sagofonto-kafka-producer">
+    
+    <div class="form-row">
+        <span><i class="icon-tag"></i><b>General:</b></span>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-kafkaHost"> Host</label>
+        <input type="text" id="node-input-kafkaHost" placeholder="localhost:9092">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-topicName"><i class="icon-tag"></i> Topic</label>
+        <input type="text" id="node-input-topicName" placeholder="topic_name">
+    </div>
+
+    <div class="form-row">
+        <span><i class="icon-tag"></i><b>Timeouts:</b></span>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-connectTimeout"> Connect</label>
+        <input type="text" id="node-input-connectTimeout" placeholder="10000">
+    </div>
+
+	<div class="form-row">
+        <label for="node-input-requestTimeout"> Request</label>
+        <input type="text" id="node-input-requestTimeout" placeholder="10000">
+    </div>
+	
+    <div class="form-row">
+        <span><i class="icon-tag"></i><b>Acknowledgements:</b></span>
+    </div>
+
+	<div class="form-row">
+        <label for="node-input-requireAcks"> Require</label>
+        <input type="text" id="node-input-requireAcks" placeholder="1">
+    </div>
+    
+	<div class="form-row">
+        <label for="node-input-ackTimeoutMs"> Timeout</label>
+        <input type="text" id="node-input-ackTimeoutMs" placeholder="100">
+    </div>
+	
+    <div class="form-row">
+        <span><i class="icon-tag"></i><b>Other:</b></span>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-partitionerType"> Partitioner</label>
+        <select id="node-input-partitionerType">
+            <option value="0">Default</option>
+            <option value="1">Random</option>
+			<option value="2">Cyclic</option>
+			<option value="3" selected>Keyed</option>
+        </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-compressionOption"> Compress</label>
+        <select id="node-input-compressionOption">
+            <option value="0" selected>No compression</option>
+            <option value="1">Compress using GZip</option>
+            <option value="2">Compress using snappy</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="sagofonto-kafka-producer">
+
+
+</script>
