@@ -66,4 +66,4 @@ The following procedure explaining how to install the DataRobotFactory is based 
 
    Import the content of each file from /sagofonto-hepwat-master/sagofonto-hepwat-master/datarobotfactory/flows to the dashboard
 
-        ![Screen shot 1](media/nodered_1.png)
+        ![Screen shot 1](media/nodered_2.png)
