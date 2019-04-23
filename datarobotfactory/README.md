@@ -23,17 +23,17 @@ started.
 
 https://www.docker.com/
 
-Package software into standardized units for development, shipment and deployment. But the usage of Docker regarding to the DataRobotFactory will not be explained any further in this document.
+Package software into standardized units for development, shipment and deployment. But the usage of Docker will not be explained any further in this document.
 
 # Installation of DataRobotFactory
 
-To get DataRobotFactory up and running you need to
-   1. Downloading the sagofonto-hepwat files.
-   2. Installing non npm packaged nodes.
-   3. Installing npm packaged nodes.
+To get DataRobotFactory up and running you need to:
+   1. Download the sagofonto-hepwat files.
+   2. Install non npm packaged nodes.
+   3. Install npm packaged nodes.
    4. Import flows, configure and deploy.
 
-A prerequisite before actually running the flows is an installation of PostgreSQL and the HEPWAT database. The DataRobotFactory flows also contains a Kafka producer that expects you to have a host with a running Kafka installation available on port 9092.
+A prerequisite before actually running the flows is an installation of PostgreSQL, the HEPWAT database and MongoDB. The DataRobotFactory flows also contains a Kafka producer that expects you to have a host with a running Kafka installation available on port 9092.
 
 ## Quick Start
 
@@ -45,13 +45,13 @@ The following procedure explaining how to install the DataRobotFactory is based 
 
 2. Installing non npm packaged nodes
    
-   From your download library
+   From your download library enter the following command:
 
         cp -r sagofonto-hepwat/datarobotfactory/nodes/sagofonto $HOME/.node-red/node_modules/sagofonto
 
 3. Installing npm packaged nodes
 
-   To install the necessary npm packaged nodes, you can install them locally within your user data directory (by default, $HOME/.node-red)
+   To install the necessary npm packaged nodes, you can install them locally within your user data directory (by default, $HOME/.node-red):
 
         cd $HOME/.node-red
         npm install --unsafe-perm kafka-node avro-js node-opcua node-red-contrib-cloudera
@@ -61,8 +61,13 @@ The following procedure explaining how to install the DataRobotFactory is based 
         npm install --unsafe-perm node-red-contrib-csvtojson node-red-contrib-fs-ops
         npm install --unsafe-perm node-red-node-tail node-red-contrib-exit
         npm install --unsafe-perm node-red-contrib-http-request node-red-node-mongodb
+   
+   You will then need to stop and restart Node-RED for it to pick-up the new nodes.
 
 4. Import, configure and deploy the flows
 
-   Import the content of each file from /sagofonto-hepwat-master/sagofonto-hepwat-master/datarobotfactory/flows to the dashboard
-       ![Screen shot 1](media/nodered_1.png)
+   Import the content of each file from /sagofonto-hepwat-master/sagofonto-hepwat-master/datarobotfactory/flows to the dashboard:
+
+   ![Screen shot 1](media/nodered_1.PNG)
+
+   Some of the nodes in the flows needs to be configured with e.g. host, port, user and password before you can finally deploy.
