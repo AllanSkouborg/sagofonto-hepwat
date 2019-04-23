@@ -66,8 +66,12 @@ The following procedure explaining how to install the DataRobotFactory is based 
 
 4. Import, configure and deploy the flows
 
-   Import the content of each file from /sagofonto-hepwat-master/sagofonto-hepwat-master/datarobotfactory/flows to the dashboard:
+   Import the content of each file from the following path:
+   
+        /sagofonto-hepwat-master/sagofonto-hepwat-master/datarobotfactory/flows
+   
+   and paste it into the clipboard:
 
    ![Screen shot 1](media/nodered_1.PNG)
 
-   Some of the nodes in the flows needs to be configured with e.g. host, port, user and password before you can finally deploy.
+   Some nodes in the flows need to be configured with e.g. host, port, user and password before you can finally deploy.
